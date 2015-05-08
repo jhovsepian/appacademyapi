@@ -5,12 +5,31 @@ ini_set('default_socket_timeout', 300);
 session_start();
 
 //make constants using define.
-define('client_id', '28a677810dee4544a961906ef66d04f4');
-define('client_secret', '9a7d8d0c9bc54030a4e8295f3b27a08d');
-define('redirectURI', 'http://localhost8888/appacademyapi/index.php');
+define('client_ID', '28a677810dee4544a961906ef66d04f4');
+define('client_Secret', '9a7d8d0c9bc54030a4e8295f3b27a08d');
+define('redirectURI', 'http://localhost/appacademyapi/index.php');
 define('ImageDirectory', 'pics/');
 
 ?>
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Untitled</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="author" href="humans.txt">
+    </head>
+    <body>
+       <!-- Creating a login for people and give approval four our web app to access their Instagram account
+			After getting approval we are now going to have the information so that we can play with it.
+        -->
+       <a href="https:api.instagram/oauth/authorize/?client_id=<?php echo client_ID; ?>&redirect_uri=<?php echo redirectURI?>&response_type=code">LOGIN</a>
+        <script src="js/main.js"></script>
+    </body>
+</html>
 
 
 <!-- CLIENT INFO
