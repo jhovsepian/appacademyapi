@@ -11,8 +11,8 @@ define('redirectURI', 'http://localhost/appacademyapi/index.php');
 define('ImageDirectory', 'pics/');
 
 if (isset($GET['code'])) {
-    $code = ($GET['code']);
-    $url = 'https://api.instagram.com/oauth_token';
+    $code = ($_GET['code']);
+    $url = 'https://api.instagram.com/oauth/access_token';
     $access_token_settings = array('client_id' => clientID, 
                                    'client_secret' => clientSecret,
                                    'grant_type' => 'authorization_code',
@@ -25,9 +25,14 @@ if (isset($GET['code'])) {
     curl_setopt($curl, CURLOPT_POSTFIELDS, $access_token_settings); // setting the POSTFIELDS to the array setup that we created.
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); // setting it equal to 1 because we are getting strings back.
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);// but in live work-production we want to set this to true.
-}
+
 $result = curl_exec($curl);
-curl_close();
+curl_close($curl);
+
+$results = json_decode($result, true);
+echo $results['user']['username'];
+}
+else { 
 ?>
 
 <!doctype html>
@@ -44,11 +49,13 @@ curl_close();
        <!-- Creating a login for people and give approval four our web app to access their Instagram account
 			After getting approval we are now going to have the information so that we can play with it.
         -->
-       <a href="https:api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI?>&response_type=code">LOGIN</a>
+       <a href="https:api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI?>&response_type=code">Login</a>
         <script src="js/main.js"></script>
     </body>
 </html>
-
+<?php 
+}
+?>
 
 <!-- CLIENT INFO
 CLIENT ID	28a677810dee4544a961906ef66d04f4
