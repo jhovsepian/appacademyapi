@@ -26,6 +26,14 @@ function connectToInstagram($url){
     return $result;
 
 }
+//function to get userID cause username doesnt allow us to get pictures.
+function getUserID($userName) {
+    $url = 'http://api.instagram.com/v1/users/search?q='.$userName.'&client_id='.clientID;
+    $instagramInfo = connectToInstagram($url);
+    $results = json_decode($instagramInfo, true);
+
+    echo $results['data']['0']['id'];
+}
 
 if (isset($_GET['code'])) {
     $code = ($_GET['code']);
@@ -48,8 +56,7 @@ curl_close($curl);
 
 //echo $result; to test whether $result was coming back as an array which it is
 $results = json_decode($result, true);
-
-echo $results['user']['username'];
+getUserID($results['user']['username']);
 }
 else { 
 ?>
