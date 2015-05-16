@@ -85,8 +85,7 @@ else {
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Untitled</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="author" href="humans.txt">
+        <link rel="stylesheet" href="main.css">
     </head>
     <body>
        <!-- Creating a login for people and give approval four our web app to access their Instagram account

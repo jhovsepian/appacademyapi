@@ -1,0 +1,16 @@
+body{
+	background-image: url(https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/64919_116343538542100_648020443_n.jpg?oh=6dee509edaf724a2e4643590b0570944&oe=56090B9C&__gda__=1438987118_9e27749d09842f23cc3e3e6b886de97c);
+	background-size: 100%;
+}
+
+@media (min-device-width: 375px) and (max-width: 667px) {
+html,body {
+	width: 100%;
+	height: 100%;
+	background-image: url(http://www.color-hex.com/palettes/1295.png);
+	background-size: 100%;
+	text-align: center;
+	font-size: 50px;
+
+}
+}
